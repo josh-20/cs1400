@@ -1,0 +1,25 @@
+import time
+
+time_t = time.time()
+
+limit = 10000
+iterations = 0
+i = 2
+num_found = 0
+while num_found < 4:
+    sum = 0
+    d = 1
+    while d < i:
+
+        if d > i / 2:
+            break
+        if  i % d == 0:
+            sum += d
+        d += 1
+        iterations += 1
+    if sum == i:
+        print("perfect number: ",i)
+        num_found += 1
+    i += 1
+print("iterations",iterations)
+print("  %s seconds   " % (time.time()- time_t))
