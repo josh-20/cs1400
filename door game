@@ -1,0 +1,42 @@
+import random
+exitGame = 5
+door1C = 0
+door2 = 1
+door3 = 2
+yes = 3
+no = 4
+wins = 0
+user1 = 6
+win = "You Win!!"
+lose = "You Lose!"
+r = random.randint(0,2) 
+#keeps game running
+while user1 != 5: 
+    user1 = int(input("what door do you want to choose? Door (0), Door (1) or Door (2) exit Game(5):"))
+    #if user wants to exit game put 5
+    if user1 == 5:
+        break
+    #open a goat door when user selects a door 
+    print("You chose Door number:",user1)
+    if user1 == 1:
+        print("computer opens door 2:goat")
+    elif user1 == 2:
+        print("Computer opens door 1:goat")
+    else: 
+        print("computer opens door 1:goat")
+    #give user the option to switch doors
+    switch = int(input("would you like to switch doors? yes(3) or no(4) :"))
+    #show that if user won or loses
+    if user1 == 0 and switch == 3:
+        print(lose)
+    elif user1 == 0 and switch == 4:
+        print(win)
+    if user1 == 1 and switch == 3:
+        print(win)
+    elif user1 == 1 and switch == 4:
+        print(lose)
+    if user1 == 2 and switch == 3:
+        print(win)
+    elif user1 == 2 and switch == 4:
+        print(lose)
+	
