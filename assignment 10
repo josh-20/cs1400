@@ -1,0 +1,53 @@
+import turtle
+t = turtle
+startl = 250
+startw = 250
+height = eval(input("Enter height of the Square:"))
+width = eval(input("Enter the width of square:"))
+x, y = eval(input("Enter an x and y:"))
+
+t.penup()
+t.goto(x, y)
+t.pendown()
+t.forward(width)
+t.right(90)
+t.forward(height)
+t.right(90)
+t.forward(width)
+t.right(90)
+t.forward(height)
+#first square
+
+c = 0
+i = 0
+go1 = (width / 8 * 2)
+t.right(90)
+for k in range(0, 4):
+    while i < 4:
+        t.begin_fill()
+        t.color("Black")
+
+        t.forward(width / 8)
+        t.right(90)
+        t.forward(height / 8)
+        t.right(90)
+        t.forward(width / 8)
+        t.right(90)
+        t.forward(height / 8)
+        t.penup()
+        t.right(90)
+        t.forward(width / 8 * 2)
+        t.pendown()
+        t.end_fill()
+        i += 1
+        if i == 4:
+            t.penup()
+            t.goto(x,y)
+            t.right(90)
+            t.forward(height / 8 * 2)
+            t.left(90)
+            t.pendown()
+
+
+
+t.exitonclick()
