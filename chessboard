@@ -1,0 +1,30 @@
+def fun1():
+    import turtle
+    t = turtle
+    startl = 250
+    startw = 250
+    height = eval(input("Enter height of the Square:"))
+    width = eval(input("Enter the width of square:"))
+    x, y = eval(input("Enter an x and y:"))
+
+
+
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.forward(width or startw)
+    t.right(90)
+    t.forward(height or startl)
+    t.right(90)
+    t.forward(width or startw)
+    t.right(90)
+    t.forward(height or startl)
+    t.done()
+    '''
+    remember that you already know that you're making a 8x8 box so you can make the inner boxes knowing to divide the total width and height
+    by 1/8 so you can make the boxes.    '''
+
+
+
+
+
