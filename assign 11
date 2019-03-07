@@ -1,0 +1,64 @@
+import turtle
+t = turtle.Turtle()
+t.speed(10)
+import random
+from turtle import Turtle,Screen
+def setup():
+    turtle.Screen().setup(1000,800)
+
+x, y = eval(input("Enter an x,y values: "))
+width = int(input("Enter a width: "))
+height = int(input("Enter a height: "))
+offset = int(input("Enter an off set nubmer: "))
+counter = int(input("Enter number of shapes:"))
+degree = int(input("Enter Number of Degrees you want it to rotate: "))
+t.penup()
+t.goto(x,y)
+
+#offset just moves from where ever the x,y value is so just penup() forward(offset)
+def drawRectangle(width,height):
+    t.forward(width)
+    t.right(90)
+    t.forward(height)
+    t.right(90)
+    t.forward(width)
+    t.right(90)
+    t.forward(height)
+    t.penup()
+
+
+def drawAllRectangles(x,y,width,height,counter,degree,offset):
+
+    for i in range(0,counter):
+        t.goto(x,y)
+        t.right(360 / degree)
+        t.forward(offset)
+        color = random.randint(0, 5)
+        if color == 0:
+            t.pencolor("Red")
+        elif color == 1:
+            t.pencolor("blue")
+        elif color == 2:
+            t.pencolor("Green")
+        elif color == 3:
+            t.pencolor("Teal")
+        elif color == 4:
+            t.pencolor("Purple")
+        else:
+            t.pencolor("purple")
+
+        t.pendown()
+        drawRectangle(height, width)
+
+
+
+drawAllRectangles(x,y,width,height,counter,degree,offset)
+
+
+
+
+
+
+
+
+turtle.done()
