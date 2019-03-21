@@ -1,0 +1,85 @@
+import turtle
+t = turtle
+
+
+
+class Face:
+    def __init__(self):
+        self.__smile = True
+        self.__happy = True
+        self.__dark_eyes = True
+
+    def draw_face(self):
+        turtle.clear()
+        self.__draw_head()
+        self.__draw_eyes()
+        self.__draw_mouth()
+
+    def is_smile(self):
+        return self.__smile
+
+
+    def is_happy(self):
+        return self.__happy
+
+
+    def is_dark_eyes(self):
+        return self.__dark_eyes
+
+    def change_mouth(self):
+        self.__smile = not self.__smile
+        self.draw_face()
+
+    def change_emotion(self):
+        self.__happy = not self.__happy
+        self.draw_face()
+
+    def change_eyes(self):
+        self.__dark_eyes = not self.__dark_eyes
+        self.draw_face()
+
+
+def main():
+    myFace = Face()
+    myFace.draw_face()
+
+    done = False
+
+    while not done:
+        print("Change My Face")
+        mouth = "frown" if myFace.is_smile() else "smile"
+        emotion = "angry" if myFace.is_happy() else "happy"
+        eyes = "blue" if myFace.is_dark_eyes() else  "black"
+        print("1) Make me", mouth)
+        print("2) Make me", emotion)
+        print("3) Make my eyes", eyes)
+        print("0) Quit")
+
+        menu = eval(input("Enter a selection: "))
+        t.goto(0,0)
+        t.begin_fill()
+        t.color("Yellow")
+        t.pendown()
+        t.circle(100)
+        t.end_fill()
+        t.penup()
+        t.goto(70,20)
+        t.pendown()
+
+        if menu == 1:
+
+
+        elif menu == 2:
+
+        elif menu == 3:
+
+        else:
+            break
+
+    print("Thanks for Playing")
+
+    turtle.hideturtle()
+    turtle.done()
+
+
+main()
