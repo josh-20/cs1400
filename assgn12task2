@@ -1,0 +1,6 @@
+class Account:
+    def __init__(self,id = int(input("Enter your id number: ")),annualInterestRate = float(input("Enter your Annual interest rate:")), balance = float(input("Enter your balance amount:"))):
+        self.__id = id
+        self.__balance = balance
+        self.__annualInterestRate = annualInterestRate
+    print("id number: ",id)
