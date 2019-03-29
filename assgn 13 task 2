@@ -1,0 +1,54 @@
+class Password():
+    def __init__(self,password):
+        self.__password = password
+
+
+    def setpassword(self,password):
+        self.__password = password
+        
+# Is Valid calls all the check functions
+    def isValid(self):
+        self.has_length()
+        self.hasInt()
+        self.isnumericl()
+        
+# checks if the password is long enough
+    def has_length(self):
+        myPass = self.__password
+        if len(myPass) >= 8:
+            myPass = True
+        else:
+            myPass = False
+            print("This password isn't long enough")
+
+# hasInt checks if there are enough digits in the password
+    def hasInt(self):
+        number = 0
+        myPass = self.__password
+        for i in (myPass):
+            if i.isdigit():
+                number += 1
+            if number >= 2:
+                return self.__password
+            else:
+                print("not enough digits!")
+
+# isnumeric1 checks that the password is numerical 
+    def isnumericl(self):
+        myPass = self.__password
+        if myPass.isnumeric():
+           myPass = True
+        else:
+            myPass = False
+            print("symbols are not allowed")
+        return self.__password
+
+
+
+def main():
+    password = input("Enter a password: ")
+    userpass = Password(password)
+    print(userpass.isValid())
+
+
+main()
