@@ -20,3 +20,29 @@ class Polygon():
         return self.sides
     def __str__(self):
         return self.sides
+
+    
+    from Polygon import Polygon
+
+
+def main():
+
+    sides = Polygon(input("Number of sides for first polygon: "))
+    poly2 = Polygon(input("Number of sides for second polygon: "))
+
+    addition = sides + poly2
+    subtraction = sides - poly2
+    greater = sides > poly2
+    lessThen = sides < poly2
+    equal = sides == poly2
+    leng = addition
+
+    print(addition)
+    print(subtraction)
+    print(greater)
+    print(lessThen)
+    print(equal)
+    print(len(leng))
+
+
+main()
