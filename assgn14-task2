@@ -1,0 +1,9 @@
+# List with integers
+lst = [1,2,3,4,5,6,7,8,9]
+print("List number one: ",lst)
+print("List in reverse:",lst[::-1],"\n")
+
+# List with names
+lst2 = ["Josh","Bob","Kyle","Kent"]
+print("Names",lst2)
+print("Names in reverse:",lst2[::-1])
