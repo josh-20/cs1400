@@ -1,0 +1,22 @@
+def selection_sort(lst):
+    return lst
+lst = [i for i in range(1000)]
+def binary_search(lst, num):
+    start = 0
+    end = len(lst)-1
+    mid = end // 2
+    found = False
+    while start <= end and not found:
+        if lst[mid] == num:
+            found = True
+            break
+
+        elif num > lst [mid]:
+            start = mid + 1
+            mid = (start + end) // 2
+        elif num < lst[mid]:
+            end = mid - 1
+            mid = (start + end) // 2
+
+    return found
+print(binary_search(lst,420))
