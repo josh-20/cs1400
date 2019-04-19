@@ -1,0 +1,45 @@
+
+class Card:
+    def __init__(self,id):
+        self.id = id
+
+# Get ID
+    def getid(self):
+        return self.id
+
+    def getval(self):
+      return (self.id % 20) + 1
+
+    def getcoin(self):
+        if self.id % 2 == 0:
+            return "head"
+        else:
+            return "tails"
+
+    def gethand(self):
+        hand = ["Rock","Paper","Scissors"]
+        h = hand[(self.id // 20) % 3]
+        return h
+
+
+
+
+
+    def __str__(self):
+        return str(self.getval()) + " Of " + self.gethand() + "  " + self.getcoin()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
