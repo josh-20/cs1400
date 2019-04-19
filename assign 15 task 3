@@ -1,0 +1,132 @@
+'''
+assginment 15 Task 3
+Joshua Hamby
+proper imports for Deck and Card
+Have main function with poper imports
+have if statements that have sort by value, id
+in card file have logic for value hand and coin with proper mods
+with coin have % 2
+with hand have (id // 20 % 3)
+with value have (id % 20) + 1
+have __str__ that adds everything to one card in the list
+Deck file have Deck class that sends i from a range of 120 to card to be turned into a card
+have a shuffle function
+for main sorts use code from files in canvas make sure to have that values compairing eachother in the right spots .getid/ .getval
+
+for bianary search have input from user that are inputed into function convertCardToValue to get a key id
+to use in the bianary search
+
+have a shuffle function for
+and an exit function
+'''
+
+from Deck15 import Deck
+from Card15 import Card
+
+
+# The function for sorting elements in ascending order
+def selectionSortId(lst):
+    for i in range(len(lst) - 1):
+        # Find the minimum in the lst[i : len(lst)]
+        currentMin, currentMinIndex = lst[i], i
+
+        for j in range(i + 1, len(lst)):
+            if currentMin.getid() > lst[j].getid():
+                currentMin, currentMinIndex = lst[j], j
+
+        # Swap lst[i] with lst[currentMinIndex] if necessary
+        if currentMinIndex != i:
+            lst[currentMinIndex], lst[i] = lst[i], currentMin
+def selectionSortVal(lst):
+    for i in range(len(lst) - 1):
+        # Find the minimum in the lst[i : len(lst)]
+        currentMin, currentMinIndex = lst[i], i
+
+        for j in range(i + 1, len(lst)):
+            if currentMin.getval() > lst[j].getval():
+                currentMin, currentMinIndex = lst[j], j
+
+        # Swap lst[i] with lst[currentMinIndex] if necessary
+        if currentMinIndex != i:
+            lst[currentMinIndex], lst[i] = lst[i], currentMin
+
+
+# Use binary search to find the key in the list
+def binarySearch(lst, key):
+    low = 0
+    high = len(lst) - 1
+
+    while high >= low:
+        mid = (low + high) // 2
+        if key < lst[mid].getid():
+            high = mid - 1
+        elif key == lst[mid].getid():
+            print("Found Card!!")
+            return True
+
+        else:
+            low = mid + 1
+    print("Card Not Found!")
+
+    return False
+
+
+
+maxCardValue = 20
+hand = ("Rock","Paper","Scissors")
+coin = ("Heads","Tails")
+def convertCardToValue(cardValue, cardMano, cardCoin):
+    return 2 * ((cardValue - 1) + (maxCardValue * hand.index(cardMano))) + coin.index(cardCoin)
+
+
+def main():
+
+    exit1 = True
+    card = Card
+    draw = Deck()
+    draw.setlist()
+    draw.shuffle()
+    list = []
+    for i in range(30):
+        list.append(draw.draw())
+
+
+    while exit1 is True:
+        user1 = int(input("(1)Sort by Value""\n""(2)Sort by Id""\n""(3)Find Card""\n""(4)New Hand""\n""(5)Quit""\n"" Make a Selection:"))
+
+        if user1 == 1:
+            selectionSortVal(list)
+            for i in list:
+                print(i)
+
+        elif user1 == 2:
+            selectionSortId(list)
+            for i in list:
+                print(i)
+
+
+        elif user1 == 3:
+            selectionSortId(list)
+            value = input("what card hand?(Rock, Paper, Scissors): ")
+            value1 = int(input("what card value?:"))
+            value2 = input("what coin side?(Heads or Tails:")
+            convertCardToValue(value1,value,value2)
+            key = convertCardToValue(value1,value,value2)
+
+            binarySearch(list,key)
+
+        elif user1 == 4:
+
+            draw.shuffle()
+            for i in list:
+                print(i)
+
+        elif user1 == 5:
+            exit1 = False
+
+
+
+
+
+
+main()
